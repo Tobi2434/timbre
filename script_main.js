@@ -216,6 +216,8 @@ document.addEventListener("keyup", (event) => {
 document.getElementById("submit-btn").addEventListener("click", () => {
   saveCurrentSelections(); // Save current selections
 
+  submitSDSelections(); // Call the submission function
+
   console.log("SD Selections for All Presets:", sdSelections);
 
   
@@ -303,3 +305,33 @@ function loadPreset(index) {
   });
 
 }
+
+
+//submit JSON of sdSelections
+function submitSDSelections() {
+  // Merge the data into a JSON object
+  const formData = {
+    selections: sdSelections, // Add your SD selections
+    submittedAt: new Date().toISOString(), // Optional: Add a timestamp
+  };
+
+  // Send the JSON data to Getform
+  fetch("https://getform.io/f/bvrrjmmb", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", // Set content type to JSON
+    },
+    body: JSON.stringify(formData), // Convert formData object to JSON string
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("Form submitted successfully!");
+      } else {
+        alert("Error submitting form.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
