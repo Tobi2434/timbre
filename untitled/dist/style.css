@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.key {
+  position: relative;
+  width: 40px;
+  height: 150px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.key.black {
+  background: black;
+  color: white;
+  height: 100px;
+  margin-left: -20px;
+  margin-right: -20px;
+  z-index: 2;
+}
+
+.note-text {
+  font-size: 14px;
+  bottom: 5px;
+}
+
+.key-label {
+  position: absolute;
+  font-size: 10px;
+  pointer-events: none;
+  color: #666;
+}
+
+.key-label.white {
+  bottom: 15px;
+  /* Below for white keys */
+}
+
+.key-label.black {
+  top: 5px;
+  /* Above for black keys */
+  color: white;
+  /* Ensure visibility on black keys */
+}
+
+.key.active {
+  background-color: #ffc108;
+  transform: scale(0.95);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#navigation {
+  margin-top: 20px;
+}
+
+#navigation a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+#navigation a:hover {
+  text-decoration: underline;
+}
+
+.preset-button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.preset-button:hover {
+  background-color: #ddd;
+}
+
+.preset-button.active {
+  background-color: #007bff;
+  /* Highlight color */
+  color: white;
+  border-color: #007bff;
+  transform: scale(1.05);
+  /* Slightly enlarge for emphasis */
+}

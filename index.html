@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Questionnaire</title>
+    <link rel="stylesheet" href="style_index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Sound Questionnaire</h1>
+        <p>
+            Thank you for participating in this questionnaire! Before you begin, please ensure that your sound volume is adjusted to <strong>50%</strong> for the best experience.
+        </p>
+        <p>
+            This questionnaire will guide you through a series of sounds and ask for your feedback to help us improve sound design and interaction. Make sure you're in a quiet environment for optimal results.
+        </p>
+        <div class="instructions">
+            <h2>Instructions:</h2>
+            <ul>
+                <li>Adjust your device volume to <strong>50%</strong>.</li>
+                <li>Use headphones for the best audio quality.</li>
+                <li>Click "Start" when you're ready to begin.</li>
+            </ul>
+        </div>
+        <button id="start-btn">Start</button>
+    </div>
+    <script>
+        document.getElementById("start-btn").addEventListener("click", () => {
+            window.location.href = "main.html"; // Redirect to the questionnaire page
+        });
+    </script>
+</body>
+</html>

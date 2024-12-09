@@ -1,0 +1,184 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.keyboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.key {
+  position: relative;
+  width: 40px;
+  height: 150px;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.key.black {
+  background: black;
+  color: white;
+  height: 100px;
+  margin-left: -20px;
+  margin-right: -20px;
+  z-index: 2;
+}
+
+.note-text {
+  font-size: 14px;
+  bottom: 5px;
+}
+
+.key-label {
+  position: absolute;
+  font-size: 10px;
+  pointer-events: none;
+  color: #666;
+}
+
+.key-label.white {
+  bottom: 15px; /* Below for white keys */
+}
+
+.key-label.black {
+  top: 5px; /* Above for black keys */
+  color: white; /* Ensure visibility on black keys */
+}
+
+.key.active {
+  background-color: #ffc108;
+  transform: scale(0.95);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#navigation {
+  margin-top: 20px;
+}
+
+#navigation a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+#navigation a:hover {
+  text-decoration: underline;
+}
+
+.preset-button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.preset-button:hover {
+  background-color: #ddd;
+}
+
+.preset-button.active {
+  background-color: #007bff; /* Highlight color */
+  color: white;
+  border-color: #007bff;
+  transform: scale(1.05); /* Slightly enlarge for emphasis */
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#scale-labels {
+  display: flex;
+  justify-content: center; /* Center the labels */
+  gap: 43px; /* Space between scale labels */
+  font-weight: bold;
+  margin-bottom: 15px; /* Adjust spacing between labels and checkboxes */
+  text-align: center;
+  width: 100%; /* Ensure scale labels span the container */
+}
+
+.sd-item {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically align the text and checkboxes */
+  justify-content: space-between; /* Center everything horizontally */
+  margin: 10px 0;
+  gap: 20px; /* Add spacing between labels and checkbox group */
+}
+
+.sd-label {
+  font-weight: bold;
+  width: 100px; /* Assign a fixed width */
+  text-align: center; /* Center-align the text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.sd-label.positive {
+  margin-right: 10px; /* Add spacing to the right of "Warm" */
+}
+
+.sd-label.negative {
+  margin-left: 10px; /* Add spacing to the left of "Cold" */
+}
+
+
+.checkbox-group {
+  display: flex; /* Use Flexbox */
+  justify-content: center; /* Center checkboxes horizontally */
+  align-items: center; /* Vertically align checkboxes */
+  gap: 40px; /* Consistent spacing between checkboxes */
+  width: 100%; /* Ensure the group spans the container width */
+}
+
+.checkbox-group label {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center align checkbox and number */
+}
+
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
