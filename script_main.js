@@ -325,7 +325,7 @@ function submitSDSelections() {
   })
     .then((response) => {
       if (response.ok) {
-        alert("Form submitted successfully!");
+        window.location.href = "end.html";
       } else {
         alert("Error submitting form.");
       }
