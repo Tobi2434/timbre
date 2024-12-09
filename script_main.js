@@ -211,12 +211,14 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
+
+//submit botton
 document.getElementById("submit-btn").addEventListener("click", () => {
   saveCurrentSelections(); // Save current selections
 
   console.log("SD Selections for All Presets:", sdSelections);
 
-  alert("Your selections have been submitted. Check the console for details.");
+  
 });
 
 /***
@@ -300,5 +302,4 @@ function loadPreset(index) {
     );
   });
 
-  console.log(`Loaded: ${preset.name}`);
 }
