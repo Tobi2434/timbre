@@ -324,6 +324,7 @@ function submitSDSelections() {
     body: JSON.stringify(formData), // Convert formData object to JSON string
   })
     .then((response) => {
+      window.location.href = "end.html";
       if (response.ok) {
         window.location.href = "end.html";
       } else {
