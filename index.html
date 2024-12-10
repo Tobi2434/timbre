@@ -10,7 +10,7 @@
     <div class="container">
         <h1>Welcome to the Sound Questionnaire</h1>
         <p>
-            Thank you for participating in this questionnaire! Before you begin, please ensure that your sound volume is adjusted to <strong>50%</strong> for the best experience.
+            Thank you for participating in this questionnaire! Before you begin, please ensure that your sound volume is adjusted to <strong>20%</strong> for the best experience.
         </p>
         <p>
             This questionnaire will guide you through a series of sounds and ask for your feedback to help us improve sound design and interaction. Make sure you're in a quiet environment for optimal results.
@@ -18,13 +18,21 @@
         <div class="instructions">
             <h2>Instructions:</h2>
             <ul>
-                <li>Adjust your device volume to <strong>50%</strong>.</li>
+                <li>Adjust your device volume to <strong>20%</strong>.</li>
                 <li>Use headphones for the best audio quality.</li>
-                <li>Click "Start" when you're ready to begin.</li>
+                <li>Complete the questionnaire only <strong>once.</strong></li>
+                <li>You can compare by playing a single note, or you can press multiple notes or chords simultaneously.</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <h2><strong>Tips</strong></h2>
+            <ul>
+                It is recommended to repeatedly listen to different timbres for the same word pair to compare and rank them before scoring, rather than listening to one timbre at a time, as that may cause you to hesitate for a long time.
             </ul>
         </div>
         <button id="start-btn">Start</button>
     </div>
+
     <script>
         document.getElementById("start-btn").addEventListener("click", () => {
             window.location.href = "main.html"; // Redirect to the questionnaire page

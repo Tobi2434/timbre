@@ -105,7 +105,7 @@ h1 {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
   background: white;
@@ -140,11 +140,13 @@ h1 {
 }
 
 .sd-label.positive {
-  margin-right: 10px; /* Add spacing to the right of "Warm" */
+  margin-right: 100px; /* Add spacing to the right of "Warm" */
 }
 
 .sd-label.negative {
-  margin-left: 10px; /* Add spacing to the left of "Cold" */
+  text-align: left; /* Align text to the left */
+  margin-left: -20px; /* Move it closer to the checkboxes */
+  width: 20%; /* Adjust width to control spacing */
 }
 
 
@@ -153,7 +155,7 @@ h1 {
   justify-content: center; /* Center checkboxes horizontally */
   align-items: center; /* Vertically align checkboxes */
   gap: 40px; /* Consistent spacing between checkboxes */
-  width: 100%; /* Ensure the group spans the container width */
+  width: 200px; /* Ensure the group spans the container width */
 }
 
 .checkbox-group label {

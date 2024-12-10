@@ -58,54 +58,72 @@ const keyMappings = {
 const presets = [
   {
     name: "Preset 1",
-    oscillator: { type: "sine" },
-    envelope: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 1 }
+    oscillator: { type: "pulse", width: 0.3 },
+    envelope: { attack: 0.05, decay: 0.2, sustain: 0.4, release: 0.3 },
+    filter: { type: "bandpass", frequency: 1200, Q: 1 },
+    effects: [{ type: "bitcrusher", bits: 4, wet: 0.7 }],
+    volume: -12
   },
   {
     name: "Preset 2",
     oscillator: { type: "square" },
-    envelope: { attack: 0.05, decay: 0.1, sustain: 0.7, release: 0.3 }
+    envelope: { attack: 0.05, decay: 0.1, sustain: 0.7, release: 0.3 },
+    modulation: { type: "am", frequency: 5 },
+    effects: [{ type: "chorus", frequency: 2, delayTime: 2.5, depth: 0.5, wet: 0.4 }],
+    volume: -12
   },
   {
     name: "Preset 3",
     oscillator: { type: "sawtooth" },
-    envelope: { attack: 0.2, decay: 0.3, sustain: 0.6, release: 1 }
+    envelope: { attack: 0.2, decay: 0.3, sustain: 0.6, release: 1 },
+    filter: { type: "bandpass", frequency: 400, Q: 1 },
+    effects: [{ type: "distortion", amount: 0.8, wet: 0.7 }],
+    volume: -12
   },
   {
     name: "Preset 4",
-    oscillator: { type: "triangle" },
-    envelope: { attack: 0.3, decay: 0.4, sustain: 0.8, release: 1.2 }
+    oscillator: { type: "sawtooth" },
+    envelope: { attack: 2, decay: 1.5, sustain: 0.8, release: 3 },
+    filter: { type: "bandpass", frequency: 600, Q: 0.9 },
+    effects: [
+      { type: "chorus", frequency: 1.5, depth: 0.8, delayTime: 4, wet: 0.5 },
+      { type: "reverb", decay: 5, wet: 0.8 }
+    ],
+    volume: -12
   },
   {
     name: "Preset 5",
+    oscillator: { type: "triangle" },
+    envelope: { attack: 0.05, decay: 0.2, sustain: 0.3, release: 0.5 },
+    filter: { type: "highpass", frequency: 1200, Q: 1 },
+    effects: [{ type: "reverb", decay: 3, wet: 0.7 }],
+    modulation: { type: "fm", frequency: 50, modulationIndex: 5 },
+    volume: -12
+  },
+  {
+    name: "Preset 6",
     oscillator: { type: "sine" },
-    envelope: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 1 }
+    envelope: { attack: 0.8, decay: 0.5, sustain: 0.7, release: 2 },
+    filter: { type: "lowpass", frequency: 500, Q: 0.8 },
+    effects: [
+      { type: "chorus", frequency: 1, delayTime: 2.5, depth: 0.5, wet: 0.4 },
+      { type: "reverb", decay: 3, wet: 0.6 }
+    ],
+    volume: -12
   }
   // Add more presets as needed
 ];
 
 // List of Semantic Differential (SD) pairs
 const sdPairs = [
-  { positive: "Warm", negative: "Cold" },
-  { positive: "Bright", negative: "Dark" },
-  { positive: "Soft", negative: "Hard" },
-  { positive: "Happy", negative: "Sad" },
-  { positive: "Clean", negative: "Dirty" },
-  { positive: "Strong", negative: "Weak" },
-  { positive: "Fast", negative: "Slow" },
-  { positive: "High", negative: "Low" },
-  { positive: "Smooth", negative: "Rough" },
-  { positive: "Sharp", negative: "Dull" },
-  { positive: "Open", negative: "Closed" },
-  { positive: "Full", negative: "Empty" },
-  { positive: "Natural", negative: "Artificial" },
-  { positive: "Stable", negative: "Unstable" },
-  { positive: "Active", negative: "Passive" },
-  { positive: "Clear", negative: "Muddy" },
-  { positive: "Dynamic", negative: "Static" },
-  { positive: "Big", negative: "Small" },
-  { positive: "Wide", negative: "Narrow" },
-  { positive: "Precise", negative: "Vague" }
+  { positive: "鮮やかな (vivid) 鲜艳的", negative: "ぼけた (muffled) 模糊的" },
+  { positive: "はっきりとした (definite) 清晰的", negative: "ぼやけた (blurred) 模糊的" },
+  { positive: "鋭い (sharp) 锋利的", negative: "鈍い (dull) 钝的" },
+  { positive: "弱々しい (weakly) 虚弱的", negative: "力強い (mighty) 强大的" },
+  { positive: "迫力のある (powerfull) 有震撼力的", negative: "物足りない (lacking) 不够的" },
+  { positive: "豊かな (rich) 丰富的", negative: "貧弱な (poor) 贫乏的" },
+  { positive: "ザラザラした (rough) 粗糙的", negative: "滑らかな (smooth) 光滑的" },
+  { positive: "きれいな (beautiful) 漂亮的", negative: "汚い (dirty) 脏的" },
 ];
 
 const activeSynths = new Map();
@@ -220,7 +238,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
 
   console.log("SD Selections for All Presets:", sdSelections);
 
-  
+
 });
 
 /***
@@ -286,7 +304,7 @@ function loadPreset(index) {
 
     sdItem.innerHTML = `
         <span class="sd-label positive">${pair.positive}</span>
-      <div class="checkbox-group">${checkboxes}</div>
+        <span class="checkbox-group">${checkboxes}</span>
         <span class="sd-label negative">${pair.negative}</span>
       </div>
       `;
